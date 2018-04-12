@@ -1,0 +1,29 @@
+form
+{
+	float: left;
+}
+
+form fieldset
+{
+	float: left;
+}
+
+input, label, select
+{
+	float: left;
+}
+
+#lbBirthDate
+{
+	clear: left;
+}
+
+#lbCity
+{
+	clear: left;
+}
+
+#lbPostalCode
+{
+	clear: left;
+}
