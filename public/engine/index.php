@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Administration</title>
-	<script type="text/javascript" src="libs/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="engine/libs/jquery-3.3.1.min.js"></script>
 
 	<style type="text/css">
 		body{
@@ -14,7 +14,6 @@
 	<script type="text/javascript" src="engine/js/index.js"></script>
 </head>
 <body>
-	<!-- <?php require "View/basic_forms/basic_patient_form.php" ?> -->
-	<?php require_once('engine/routes.php') ?>
+	<?php require_once('engine/routes.php'); ?>
 </body>
 </html>
