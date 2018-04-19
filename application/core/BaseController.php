@@ -10,7 +10,7 @@
 		function __construct()
 		{
 			//always initialize a session
-			Session::init();
+			//Session::init();
 
 			//Auth::checkSessionConcurrency();
 
