@@ -13,7 +13,7 @@
     ini_set('session.cookie_httponly', 1);
 
 	return array(
-		'URL' => 'https://' . $_SERVER['HTTP_HOST'] . str_replace('public', '', dirname($_SERVER['SCRIPT_NAME'])),
+		'URL' => $_SERVER['HTTP_HOST'] . str_replace('public', '', dirname($_SERVER['SCRIPT_NAME'])),
     	'PATH_CONTROLLER' => realpath(dirname(__FILE__).'/../../') . '/EHR_Application/controller/',
     	'PATH_VIEW' => realpath(dirname(__FILE__).'/../../') . '/EHR_Application/view/',
         'PATH_BASE' => realpath(dirname(__FILE__).'/../../') . '/EHR_Application/',

@@ -1,0 +1,8 @@
+{
+	"name": "EHR Application",
+	"type":	"project",
+	"description": "An EHR Application for A medical center",
+	"autoload": {
+		"psr-4": {"": ["application/core/", "application/model/"]}
+	}
+}
