@@ -3,6 +3,6 @@
 	"type":	"project",
 	"description": "An EHR Application for A medical center",
 	"autoload": {
-		"psr-4": {"": ["application/core/", "application/model/"]}
+		"psr-4": {"": ["application/core/", "application/model/", "application/HL7_SupportedCodeSystems/Class"]}
 	}
 }

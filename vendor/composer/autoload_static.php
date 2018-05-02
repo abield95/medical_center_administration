@@ -9,6 +9,7 @@ class ComposerStaticInit8d6f5d4835116a1a2390a1030835f2b9
     public static $fallbackDirsPsr4 = array (
         0 => __DIR__ . '/../..' . '/application/core',
         1 => __DIR__ . '/../..' . '/application/model',
+        2 => __DIR__ . '/../..' . '/application/HL7_SupportedCodeSystems/Class',
     );
 
     public static function getInitializer(ClassLoader $loader)

@@ -1,0 +1,51 @@
+E_Organization Universal
+
+Organization {
+	classCode
+	determinerCode
+	id
+	code
+	name
+	desc
+	statusCode
+	telecom
+	addr
+	standardindustryClassCode
+	asOrganizationPartOf[0...*]OrganizationPartOf
+	contactParty[0...*]ContactParty
+	organizationContains[0...*]OrganizationContains
+}
+
+OrganizationPartOf{
+	classCode
+	id
+	code
+	statusCode
+	effectiveTime
+	wholeOrganization [0....1]Organization
+}
+
+ContactParty {
+	classCode
+	id
+	code
+	addr
+	telecom
+	contactPerson [0..1]Person
+}
+
+Person {
+	classCode
+	determinerCode
+	name
+	asLocateEntity [0..1](R_locationLocatedUniversal)
+}
+
+OrganizationContains {
+	classCode
+	id
+	code
+	StatusCode
+	effectiveTime
+	partOrganization[0..1]Organization
+}

@@ -13,15 +13,15 @@
     ini_set('session.cookie_httponly', 1);
 
 	return array(
-		'URL' => $_SERVER['HTTP_HOST'] . str_replace('public', '', dirname($_SERVER['SCRIPT_NAME'])),
-    	'PATH_CONTROLLER' => realpath(dirname(__FILE__).'/../../') . '/EHR_Application/controller/',
-    	'PATH_VIEW' => realpath(dirname(__FILE__).'/../../') . '/EHR_Application/view/',
-        'PATH_BASE' => realpath(dirname(__FILE__).'/../../') . '/EHR_Application/',
-        'PATH_HL7_SUPPORTED_CODE_SYSTEM' => realpath(dirname(__FILE__).'/../../') . '/EHR_Application/HL7_SupportedCodeSystems/',
+		'URL' => "http". ((!empty($_SERVER['HTTPS'])) ? "s" : "") . "://" .$_SERVER['HTTP_HOST'] . str_replace('public', '', dirname($_SERVER['SCRIPT_NAME'])),
+    	'PATH_CONTROLLER' => realpath(dirname(__FILE__).'/../../') . '/application/controller/',
+    	'PATH_VIEW' => realpath(dirname(__FILE__).'/../../') . '/application/view/',
+        'PATH_BASE' => realpath(dirname(__FILE__).'/../../') . '/application/',
+        'PATH_HL7_SUPPORTED_CODE_SYSTEM' => realpath(dirname(__FILE__).'/../../') . '/application/HL7_SupportedCodeSystems/',
 
 
-    	'DEFAULT_CONTROLLER' => 'patientAdministration',//index
-    	'DEFAULT_ACTION' => 'addPatient',//index
+    	'DEFAULT_CONTROLLER' => 'login',//index
+    	'DEFAULT_ACTION' => 'index',//index
 
     	//database configuration
     	'DB_TYPE'      => 'mysql',

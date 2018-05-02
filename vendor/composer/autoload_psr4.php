@@ -6,5 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    '' => array($baseDir . '/application/core', $baseDir . '/application/model'),
+    '' => array($baseDir . '/application/core', $baseDir . '/application/model', $baseDir . '/application/HL7_SupportedCodeSystems/Class'),
 );
