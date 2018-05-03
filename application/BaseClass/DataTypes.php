@@ -3,6 +3,7 @@
 
 /**
 * ANY Type
+*/
 class ANY
 {
 	private $dataType;
