@@ -26,7 +26,10 @@ class LoginController extends BaseController
 	public function login()
 	{
         //Redirect::to("patientAdministration/addPatient");
-		if (!Csrf::isTokenValid()) {
+        //redirect to patient registration
+        Redirect::to("patientAdministration/registerPatient");
+        //later enter working
+		/*if (!Csrf::isTokenValid()) {
 			LoginModel::logout();
 			Redirect::home();
 			exit();
@@ -57,7 +60,7 @@ class LoginController extends BaseController
 			{
 				Redirect::to('login/index');
 			}
-		}
+		}*/
 	}
 
 	public function logout()

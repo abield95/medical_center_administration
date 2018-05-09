@@ -43,6 +43,11 @@
 	        }
 		}
 
+		public function registerPatient()
+		{
+			$this->View->render('patient_administration/patient_registration');
+		}
+
 		
 	}
 
@@ -73,7 +78,7 @@
 			$requiredFile = require $file;
 
 			$var = "<div class='dropdown'>";
-			$var .= "<input type='text' class='droptxt' placeholder='" . $filename . "'' id='" . $filename . "''>";
+			$var .= "<input type='text' class='droptxt' placeholder='" . $filename . "'' id='" . $filename . "'' required='true'>";
 			$var .= "<div class='dropdown-content'>";
 
 			foreach ($requiredFile as $key => $value) {
