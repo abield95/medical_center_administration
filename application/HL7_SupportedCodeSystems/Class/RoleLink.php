@@ -1,6 +1,33 @@
 <?php 
 
 require_once 'InfrastructureRoot.php';
+/**
+ ***********State Machine for RoleLink*********
+ * active (sub-state of normal): 
+	 -> The state that indicates the RoleLink is in progress.
+ * cancelled (sub-state of normal): 
+	 -> The terminal state resulting from abandoning the RoleLink prior to or after activation.
+ * completed (sub-state of normal): 
+	 -> The terminal state representing the successful completion of the RoleLink.
+ * normal: 
+	 -> The "typical" state. Excludes "nullified" which represents the termination state of a RoleLink instance that was created in error. 
+ * nullified: 
+	 -> The state representing the termination of a RoleLink instance that was created in error.
+ * pending (sub-state of normal): 
+	 -> The state that indicates the RoleLink has not yet become active.
+ ************State Transitions**********
+	 activate (from pending to active) 
+	 cancel (from active to cancelled) 
+	 cancel (from pending to cancelled) 
+	 complete (from active to completed) 
+	 create (from null to active) 
+	 create (from null to completed) 
+	 create (from null to pending) 
+	 nullify (from normal to nullified) 
+	 reactivate (from completed to active) 
+	 revise (from active to active) 
+	 revise (from pending to pending) 
+**/
 
 /**
  * RoleLink
@@ -32,9 +59,7 @@ class RoleLink extends InfrastructureRoot
 
 	/**
 	 * @param $typeCode from file:///D:/santo/Documents/Tesis/HL7_V3NormativeEdition2015_2CDset/Edition2015_CD_1/Edition2015/infrastructure/vocabulary/RoleLinkType.html
-	 * @Definition The Disposition of the patient at the time of discharge
-	 * @UsageNotes While the encounter is still active (the encounter doesn't yet have an end date), this attribute should be interpreted as the expected discharge disposition. When the encounter is completed, this field contains the actual discharge disposition.
-	 * @Examples Discharge to home, expired, against medical advice
+	 * @Definition The kind of connection represented by this RoleLink, e.gm has-part, has-authority
 	**/
 	public function setTypeCode($typeCode)
 	{
@@ -44,6 +69,76 @@ class RoleLink extends InfrastructureRoot
 			'codeSystemName' => "RoleLinkType",
 			'codeSystemVersion' => "1"
 		);
+	}
+
+
+	/**
+	 * @param $id datatype from file:///D:/santo/Documents/Tesis/HL7_V3NormativeEdition2015_2CDset/Edition2015_CD_1/Edition2015/infrastructure/datatypes_r2/datatypes_r2.html#dt-II
+	 * @Definition A unique identifier used to refer to a specific instance of a RoleLink that may have the same Roles as another Roles.
+	 * @UsageConstraint For this attribute, the II.scope (data type component) SHALL NOT be set to the codes BUSN (Business) or VW (View). 
+	 * @UsageNotes This attribute should only be used in a specific set of Role-based registry related use cases which require the management of RoleLinks over time. 
+	**/
+	public function addId($id)
+	{
+		if (!is_array($this->id)) {
+			$this->id = array();
+		}
+
+		$this->id[] = $id;
+	}
+
+
+	/**
+	 * @param $statusCode from file:///D:/santo/Documents/Tesis/HL7_V3NormativeEdition2015_2CDset/Edition2015_CD_1/Edition2015/infrastructure/vocabulary/RoleLinkStatus.html
+	 * @Definition The Status of the RoleLink
+	 * @UsageNotes This attribute should only be used in a specific set of Role-based registry related use cases which require the management of RoleLinks over time. 
+	**/
+	public function setStatusCode($statusCode)
+	{
+		$this->statusCode = array(
+			'code' => $statusCode,
+			'codeSystem' => "2.16.840.1.113883.5.1137",
+			'codeSystemName' => "RoleLinkStatus",
+			'codeSystemVersion' => "1"
+		);
+	}
+
+
+	/**
+	 * @param $priorityNumber An integer specifying the relative preference for considering this relationship before other like-typed relationships having the same source.
+	 * @UsageNotes RoleRelationships with lower priorityNumber values take priority over those with higher values. The ordering may be a total ordering, in which all priority numbers are unique, or a partial ordering, in which the same priority may be assigned to more than one relationship.
+	 * @Examples For multiple backups, specifies which backup is considered before others; which is the preferred ServiceDeliveryLocation for a Physician working on behalf of a particular Health Authority.
+	**/
+	public function setPriorityNumber($priorityNumber)
+	{
+		$this->priorityNumber = $priorityNumber;
+	}
+
+
+	/**
+	 * @param $effectiveTime An interval of time specifying the period during which the connection between Roles is in effect.
+	**/
+	public function setEffectiveTime($effectiveTime)
+	{
+		$this->effectiveTime = $effectiveTime;
+	}
+
+
+	//associaitons of RoleLink
+	public function setTarget(&$target)
+	{
+		if (!is_a($target, 'Role')) {
+			return false;
+		}
+		$this->target = $target;
+	}
+
+	public function setSource(&$source)
+	{
+		if (!is_a($source, 'Role')) {
+			return false;
+		}
+		$this->source = $source;
 	}
 }
 

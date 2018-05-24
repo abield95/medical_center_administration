@@ -52,12 +52,12 @@ class ActRelationship extends InfrastructureRoot
 		$this->actAttributeContextBlockedInd = FALSE;
 		$this->contextControlCode = "DEPRECATED";//Deprecated
 		$this->contextConductionInd = "DEPRECATED";
-		$this->sequenceNumber;
-		$this->priorityNumber;
-		$this->pauseQuantity;
-		$this->checkpointCode;
-		$this->splitCode;
-		$this->joinCode;
+		$this->sequenceNumber = NULL;
+		$this->priorityNumber = NULL;
+		$this->pauseQuantity = NULL;
+		$this->checkpointCode = NULL;
+		$this->splitCode = NULL;
+		$this->joinCode = NULL;
 		$this->negationInd;
 		$this->conjunctionCode;
 		$this->localVariableName;
@@ -327,15 +327,25 @@ class ActRelationship extends InfrastructureRoot
 	}
 
 
+	/**
+	 * @param $target type Act
+	**/
 	public function setTarget(&$target)
 	{
-		$this->target = $target;
+		if (is_a($target, 'Act') && !is_null($target)) {
+			$this->target = $target;
+		}
 	}
 
 
+	/**
+	 * @param $source type Act
+	**/
 	public function setSource(&$source)
 	{
-		$this->source = $source;
+		if (is_a($source, 'Act') && !is_null($source)){
+			$this->source = $source;
+		}
 	}
 }
 

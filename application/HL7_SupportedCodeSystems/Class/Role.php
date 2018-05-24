@@ -302,25 +302,55 @@ class Role extends InfrastructureRoot
 	 * Associations of Role
 	**/
 
-	public function setPlayer(&$entity)
+
+	/**
+	 * @param $entity type Entity
+	**/
+	public function setPlayer(&$player)
 	{
-		$this->player = $entity;
+		if (!is_a($player, 'Entity')) {
+			return false;
+		}
+		$this->player = $player;
 	}
 
-	public function setScoper(&$entity)
+
+	/**
+	 * @param $entity type Entity
+	**/
+	public function setScoper(&$scope)
 	{
-		$this->scoper = $entity;
+		if (!is_a($scoper, 'Entity')) {
+			return false;
+		}
+		$this->scoper = $scoper;
 	}
 
-	public function setInboundLink($inboundLink)
+
+	/**
+	 * @param $inboundLinl type RoleLink
+	**/
+	public function setInboundLink(&$inboundLink)
 	{
-		
+		if (!is_a($inboundLink, 'RoleLink')) {
+			return false;
+		}
+		$this->inboundLink = $inboundLink;	
 	}
 
-	public function setParticipation(&$participation = NULL)
+
+	public function setOutboundLink(&$outboundLink)
 	{
-		if (is_null($participation)) {
-			$participation = new Participation();
+		if (!is_a($outboundLink, 'RoleLink')) {
+			return false;
+		}
+		$this->outboundLink = $outboundLink;
+	}
+
+	public function setParticipation(&$participation)
+	{
+		if (!is_a($participation, 'Participation')) {
+			return false;
 		}
 
 		$participation->setRole($this);
