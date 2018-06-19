@@ -42,10 +42,10 @@ class Participation extends InfrastructureRoot
 	private $act;
 	private $role;
 
-	function __construct()
+	function __construct($typeCode = NULL)
 	{
 		parent::__construct();
-		$this->typeCode = NULL;
+		$this->typeCode = $typeCode;
 		$this->functionCode = NULL;
 		$this->contextControlCode = NULL;
 		$this->sequenceNumber = NULL;

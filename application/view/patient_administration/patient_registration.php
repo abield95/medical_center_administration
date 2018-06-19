@@ -36,10 +36,13 @@
 
 		<fieldset id="telecomFieldset">
 			<legend>Telecomunication</legend>
+			<span id="hiddenValTel" class="hidden">0</span>
 			<div id="telecomunicationContainer">
-				<?php $this->renderWithoutHeaderAndFooter('patient_administration/telecomunication');  ?>
+				<div id="telecomContainer_0" class="prueba">
+					<?php $this->renderWithoutHeaderAndFooter('patient_administration/telecomunication');  ?>
+				</div>
 			</div>
-			<input type="button" name="addTelecomField" value="Add Telecom">
+			<input type="button" name="addTelecomField" value="Add Telecom" id="addTelecom">
 		</fieldset>
 
 		<fieldset id="addressContainer">
@@ -53,3 +56,4 @@
 </main>
 
 <script type="application/javascript" src="<?php echo Config::get('URL') ?>js/add_patient.js"></script>
+<script type="application/javascript" src="<?php echo Config::get('URL') ?>js/common.js"></script>

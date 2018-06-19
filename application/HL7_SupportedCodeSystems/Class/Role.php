@@ -1,5 +1,7 @@
 <?php 
 
+namespace CommunicationInfrastructure\CoreInfrastructure;
+
 require_once 'InfrastructureRoot.php';
 
 //remember include RoleHeir
@@ -72,10 +74,10 @@ class Role extends InfrastructureRoot
 	private $outboundLink;//0..* ROleLink::source(1...1)
 	private $participation;//0..*Participation::role(1..1)
 
-	function __construct()
+	function __construct($classCode = NULL)
 	{
 		parent::__construct();
-		$this->classCode;
+		$this->classCode = $classCode;
 		$this->id = NULL;
 		$this->code = NULL;
 		$this->negationInd = NULL;

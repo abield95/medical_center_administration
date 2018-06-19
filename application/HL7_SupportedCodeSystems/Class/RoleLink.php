@@ -127,9 +127,10 @@ class RoleLink extends InfrastructureRoot
 	//associaitons of RoleLink
 	public function setTarget(&$target)
 	{
-		if (!is_a($target, 'Role')) {
+		if (!is_a($target, 'Role') || is_null($target)) {
 			return false;
 		}
+		$target->setInboundLink($this);
 		$this->target = $target;
 	}
 
@@ -138,6 +139,7 @@ class RoleLink extends InfrastructureRoot
 		if (!is_a($source, 'Role')) {
 			return false;
 		}
+		$source->setOutboundLink($this);
 		$this->source = $source;
 	}
 }

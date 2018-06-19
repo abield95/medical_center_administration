@@ -25,9 +25,81 @@ class LoginController extends BaseController
 
 	public function login()
 	{
+        //pruebas
+        
+    //require_once(Config::get("JAVA_BRIDGE") ."java/Java.inc");
+        //phpinfo();
+        
+        /**
+         * Managind datattypes example
+         */
+        
+        //phpinfo();
+        $this->View->renderWithNavAndFooter('identified_person');
+        
+        //$saxonProc = new Saxon\SaxonProcessor();
+        
+        // $xml = new DOMDocument;
+        // if ($xml->load(Config::get("PATH_BASE") . "processable\coreschemas/voc-r2.xsd") === FALSE)
+        // {
+        //     echo "Failed opeing xsd file";
+        //     return;
+        // }
+
+        // //xsl file
+        // $xsl = new DOMDocument;
+        // if ($xsl->load(Config::get("PATH_BASE") . "stylesheetXSL.xsl") === FALSE)
+        // {
+        //     echo "Failed opening xsl file";
+        //     return;
+        // }
+
+        // //configure the preprocessor
+        // $proc = new XSLTProcessor;
+
+
+        // $proc->importStyleSheet($xsl);
+
+
+        // $page = Config::get('PATH_BASE')."prueba.html";
+        // if ($proc->transformToUri($xml, $page) === FALSE)
+        // {
+        //     echo "Error transform";
+        // }
+        
+        // $xml = new DOMDocument;
+        // if ($xml->load(Config::get("PATH_BASE") . "processable\multicacheschemas\PRPM_MT401010UV01.xsd") === FALSE)
+        // {
+        //     echo "Failed opeing xsd file";
+        //     return;
+        // }
+
+        // //xsl file
+        // $xsl = new DOMDocument;
+        // if ($xsl->load(Config::get("PATH_BASE") . "stylesheet.xsl") === FALSE)
+        // {
+        //     echo "Failed opening xsl file";
+        //     return;
+        // }
+
+        // //configure the preprocessor
+        // $proc = new XSLTProcessor;
+
+        // $proc->importStyleSheet($xsl);
+
+
+        // $page = Config::get('PATH_BASE')."prueba.html";
+        // if ($proc->transformToUri($xml, $page) === FALSE)
+        // {
+        //     echo "Error transform";
+        // }
+
+        //echo $page;
+
+
         //Redirect::to("patientAdministration/addPatient");
         //redirect to patient registration
-        Redirect::to("patientAdministration/registerPatient");
+        ////////Redirect::to("patientAdministration/registerPatient");
         //later enter working
 		/*if (!Csrf::isTokenValid()) {
 			LoginModel::logout();

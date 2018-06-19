@@ -18,6 +18,10 @@
     	'PATH_VIEW' => realpath(dirname(__FILE__).'/../../') . '/application/view/',
         'PATH_BASE' => realpath(dirname(__FILE__).'/../../') . '/application/',
         'PATH_HL7_SUPPORTED_CODE_SYSTEM' => realpath(dirname(__FILE__).'/../../') . '/application/HL7_SupportedCodeSystems/',
+        'SAXON_DIR' => realpath(dirname(__FILE__).'/../../') . '/application/saxon/',
+        'RESOURCES' => realpath(dirname(__FILE__).'/../../') . '/application/resources/',
+        
+        'JAVA_BRIDGE' => "C:\\xampp\\tomcat\webapps\JavaBridge\\",
 
 
     	'DEFAULT_CONTROLLER' => 'login',//index

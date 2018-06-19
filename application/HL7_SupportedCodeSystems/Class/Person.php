@@ -19,10 +19,11 @@ class Person extends LivingSubject
 	private $raceCode;
 	private $ethnicGroupCode;
 
-	function __construct()
+	function __construct($determinerCode = NULL)
 	{
 		parent::__construct();
 		$this->seClassCode("PSN");
+		$this->setDeterminerCode($determinerCode);
 
 		$this->addr = NULL;
 		$this->maritalStatusCode = NULL;

@@ -268,7 +268,7 @@ class Entity extends InfrastructureRoot
 
 
 	//associations funtions
-	public function addCommunicationFunciton()
+	public function addCommunicationFunction()
 	{
 		if (!is_array($this->communicationFunction)) {
 			$$this->communicationFunction = array();

@@ -21,25 +21,26 @@ jQuery(document).ready(function($) {
 		
 	});
 
+	$('#addTelecom').click(function(event) {
+		//var element = $('#telecomContainer_0').clone(true, true);
+		var element = $('[id^="telecomContainer_"').first().clone(true, true);
 
-	//manage the dropdown
-	// $('.dropbtn').click(function(event) {
-	// 	console.log($(this).attr('id'));
-	// 	$('#'+$(this).attr('id')).next('.dropdown-content').toggleClass('show');
-	// });
 
-	$('.droptxt').click(function(event) {
-		$('#'+$(this).attr('id')).next('.dropdown-content').toggleClass('show');
+		// console.log("pruebaasas: " + $(element).children('.prueba').attr('id'));
+		var num = (parseInt($('#hiddenValTel').text())) + 1;
+		$('#hiddenValTel').text(num);
+
+		var id = "telecomContainer_" + num;
+		$(element).attr({
+			'id': id
+		});
+		$('#telecomunicationContainer').append(element);
+
+		$('#'+id).children('.use').children('.droptxt').attr({
+			'id': 'use_' + num
+		})
+		$('#'+id).children('.capabilities').children('.droptxt').attr({
+			'id': 'capabilities_' + num
+		})
 	});
-
-	$('.dropdown-content a').click(function(event) {
-		var text = $($(this).contents().get(1)).text();
-		console.log("text: " + text);
-		$($(this).parent().prev()).val(text);
-		$(this).parent().toggleClass('show');
-		var res = text.replace(new RegExp(' ', 'g'), "_");
-		$("#addr" + res).removeClass('hidden').addClass('dropdown');
-	});
-
-	//end for managing the dropdown
 });
