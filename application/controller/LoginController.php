@@ -35,7 +35,28 @@ class LoginController extends BaseController
          */
         
         //phpinfo();
-        $this->View->renderWithNavAndFooter('identified_person');
+        //$this->View->renderWithNavAndFooter('identified_person');
+        $xml = Config::get("PATH_BASE") . "processable\coreschemas/voc-r2.xsd";
+        $xsl = Config::get("PATH_BASE") . "stylesheetXSL.xsl";
+
+        $proc = new Saxon\SaxonProcessor();
+        $version = $proc->version();
+        echo "Saxon processor version: " . $version;
+        $xsltProcessor = $proc->newXsltProcessor();
+        $xsltProcessor->setSourceFromFile($xml);
+        $xsltProcessor->compileFromFile($xsl);
+        $result = $xsltProcessor->transformToString();
+        if ($result != NULL) {
+            echo "Example Simple:";
+            echo "Output: " . $result;
+        }
+        else
+        {
+            echo "Result is NULL";
+        }
+
+        $xsltProcessor->clearParameters();
+        $xsltProcessor->clearProperties();
         
         //$saxonProc = new Saxon\SaxonProcessor();
         

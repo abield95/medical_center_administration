@@ -14,6 +14,7 @@
 		
 		function __construct()
 		{
+			//echo Config::get('URL');
 			$this->splitUrl();
 
 			$this->createControllerAndActionNames();

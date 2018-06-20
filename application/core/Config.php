@@ -11,7 +11,7 @@
 		{
 			if (!self::$config) {
 				# code...
-				$config_file = '../Application/config/config.app.php';
+				$config_file = '../application/config/config.app.php';
 
 				if (!file_exists($config_file)) {
 					# code...
